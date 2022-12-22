@@ -70,5 +70,157 @@ console.log(myFriendNames.indexOf("Maady"));
 // Array.prototype.lastIndexOf() -> Returns the last (greatest) index of an element within the array equal
 //console.log(myFriendNames.lastindexOf("Anjali"));
 
-var myFriendNames = ["Vinod", "Anjali", "Maady", "King"];
-console.log(myFriendNames.lastIndexOf("King"));
+var myFriendName = ["Vinod", "Anjali", "Maady", "King", "Hella"];
+console.log(myFriendName.lastIndexOf("King"));
+
+// Includes() -> Determinse wheather the array contains a value, returning true or false as appropriate.
+var myFriendName = ["Vinod", "Anjali", "Maady", "King", "Hella"];
+console.log(myFriendName.includes("King"));
+
+// Array.prototype.find() -> arr.find(callback(element[, index[, array]])[,thisArg]) array satisfies the testing function, or undefined if not found. Only problem is that it return only one element.
+
+const prices = [200, 300, 350, 400, 450, 500];
+
+// Prices < 400
+
+// Method 1
+console.log(prices.find((currVal) => currVal > 1400));
+// Method 2
+const findElem = prices.find((currVal) => {
+    return currVal < 400;
+});
+console.log(findElem);
+
+// Array.prototype.findIndex() -> Returns the found index in the array, if an element in the array satisfies the testing function or -1 if not found.
+
+const price = [200, 300, 350, 400, 450, 500];
+console.log(price.findIndex((currVal) => currVal > 1400));
+
+
+// Array.prototype.filter() -> Returns a new array containing all elements of the calling array for which the provided filtering fucntion return true.
+
+const cost = [200, 300, 350, 400, 450, 500];
+// price < 400
+const newCost = cost.filter((elem, index) => {
+    return elem < 400;
+})
+console.log(newCost);
+
+// 3️⃣ HOW TO SORT AN ARRAY :
+
+// Array.prototype.sort()
+
+// The sort() method sorts the elements of an array in place and returns the sorted array. The default sort order is ascending , built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.
+
+const months = ['March', 'Jan', 'Feb', 'Dec', 'Nov'];
+console.log(months.sort());
+
+const array1 = [1, 30, 4, 21, 100000, 99];
+console.log(array1.sort());
+
+// 4️⃣ PERFORM CRUDE OPERATION :
+
+// Array.prototype.push() -> The push() method adds one or more elements to the end of an array and returns the new length of the array.
+
+const animals = ['pigs', 'goats', 'sheep'];
+const count = animals.push('dog', 'cow')
+console.log(animals);
+console.log(count);
+
+// Array.prototype.unshift() -> The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
+
+// Example 1: 
+const animal = ['pigs', 'goats', 'sheep'];
+const ct = animal.unshift('dog', 'cow')
+console.log(animal);
+console.log(ct);
+
+// Example 2:
+const myNumber = [1, 2, 3, 4, 5];
+myNumber.unshift(4, 6);
+console.log(myNumber); 
+
+// Array.prototype.pop() -> The pop() method removes the last element from an array and returns that element. This method changes the length of the array.
+
+const plants = ['broccoli', 'cauliflower', 'kale', 'tomato', 'cabbage'];
+console.log(plants);
+console.log(plants.pop());
+console.log(plants);
+
+// Array.prototype.shift() -> The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
+
+const plant = ['broccoli', 'cauliflower', 'kale', 'tomato', 'cabbage'];
+console.log(plant);
+console.log(plant.shift());
+console.log(plant);
+
+// 🤯 CHALLENGE TIME: 🤯
+
+// Array.prototype.splice() -> Adds and/or removes elemnts from an array.
+
+/*
+1: Add Dec at the end of an array?
+2: What is the return value of splice method?
+3: Update march to March (update)?
+4: Delete June from an array?
+*/
+
+const month = ['Jan', 'march', 'April', 'June', 'July'];
+
+// SOLUTION 1 :
+const newMonth = month.splice(month.length, 0, 'Dec');
+console.log(month);
+
+// SOLUTION 2 :
+console.log(newMonth);
+// Returns the empty array.
+
+// SOLUTION 3 :
+
+// Method 1
+const updateMonth = month.splice(1, 1, 'March');
+console.log(month);
+
+// Method 1
+const indexOfMonth = month.indexOf('June');
+
+if(indexOfMonth != -1){
+    const updateMonth = month.splice(indexOfMonth, 1, 'june');
+    console.log(month);
+}
+else{
+    console.log("No such data is found");
+}
+
+// SOLUTION 4 :
+const indexOfMonths = month.indexOf('June');
+if(indexOfMonths != -1){
+    const updateMonth = month.splice(indexOfMonths, 1);
+    console.log(month);
+    //console.log(updateMonth);
+}
+else{
+    console.log("No such data is found");
+}
+
+// 5️⃣ MAP AND REDUCE METHOD
+/*
+Array.prototype.map() -> 
+let newArray = arr.map(callback(currentValue[, index[, array]]){
+    return element for newArray, after executing something
+}[, thisArg]);
+Returns a new Array containing the results of calling a function on evey element in this array.
+*/
+
+const array11 = [1, 4, 9, 16, 25];
+// num > 9
+let newArr = array11.map((curElem, index, arr) => {
+    return curElem > 9;
+})
+console.log(array11);
+console.log(newArr);
+
+
+
+// It return new array without mutating the original array
+

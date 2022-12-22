@@ -1,4 +1,2 @@
-const myName3 = "Drake Nero";
-// console.log(myName3);
-// myName3 = "Sam Raj";
-// console.log(myName3);
+const updateMonth = month.splice(1, 1, 'March');
+// console.log(month);
