@@ -1,4 +1,4 @@
-// 👻 MODERN JAVASCRIPT LECTURE 1
+// 👻 MODERN JAVASCRIPT LECTURE 2
 
 // 😎 Arrays in JavaScript 😎
 
@@ -204,6 +204,7 @@ else{
 }
 
 // 5️⃣ MAP AND REDUCE METHOD
+
 /*
 Array.prototype.map() -> 
 let newArray = arr.map(callback(currentValue[, index[, array]]){
@@ -223,4 +224,64 @@ console.log(newArr);
 
 
 // It return new array without mutating the original array
+
+// 🤯 CHALLENGE TIME: 🤯
+
+/*
+
+1. Find the square root of each element in an array ?
+2. Multiply each element by 2 and return only those   elements which are greater than 10?
+*/
+
+// SOLUTION 1 : 
+let array = [25, 36, 49, 64, 81];
+let arrSqr = array.map((currElem) => {
+    return Math.sqrt(currElem);
+})
+console.log(arrSqr);
+
+// SOLUTION 2 : (we can use chainging methods)
+let arr2 = [2, 3, 4, 6, 8];
+let mulArr2 = arr2.map((mulElem) => {
+    return mulElem * 2;
+}).filter((mulElem) => {
+    return mulElem > 10;
+})
+console.log(mulArr2);
+
+
+// REDUCE METHOD :
+/* 
+Flatten an array means to convert the 3rd or 2nd array into a single dimensional array.
+
+The reduce() method executes a reducer funciton (that you  provide) on each element of the array, resulting in single output value.
+
+The reducer function takes four argument:
+-> Accumulator
+-> Current Value
+-> Current Index
+-> Source Array
+
+*/
+
+let arr3 = [5, 6, 2];
+let sum = arr3.reduce((accumilator, sumElem, index, arr) => {
+    return accumilator *= sumElem;
+})
+console.log(sum);
+
+// HOW TO FLATTEN AN ARRAY
+// Converting 2D and 3D arrray into one Dimenesional array
+
+const arr4 = [['zone_1', 'zone_2'], 
+              ['zone_3', 'zone_4'], 
+              ['zone_5', 'zone_6'], 
+              ['zone_7', 'zone_8']];
+
+let flatArray = arr4.reduce((accum, currValue) => {
+    return accum.concat(currValue);
+})
+console.log(flatArray);
+
+
 
